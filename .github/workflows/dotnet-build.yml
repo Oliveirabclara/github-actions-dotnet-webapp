@@ -1,0 +1,22 @@
+name: Workflow Agendado e Push 
+
+on: 
+  push:
+    branches: 
+      - main
+  schedules:
+    - cron: '0 * * * *'
+
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+
+  
+    steps: 
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Executar script personalizado
+        run: |
+          echo "Hora atual do servidor:"
+          date
